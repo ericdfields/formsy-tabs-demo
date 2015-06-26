@@ -1,26 +1,25 @@
 import React from 'react';
+var Formsy = require('formsy-react');
+var Tabs = require('react-simpletabs');
 
 export default class IndexComponent extends React.Component {
   render() {
-    if (this.props.items.length === 0) {
-      return (
-        <p ref="empty">Index is empty.</p>
-      );
-    }
 
     return (
-      <section>
-        <h2>react-webpack-boilerplate</h2>
-        <ul ref="indexList" className="index-list">
-          {this.props.items.map((item, index) => {
-            return (<li key={index}>item {item}</li>);
-          })}
-        </ul>
-      </section>
-    );
+      <Formsy.Form {...this.props}>
+        <Tabs>
+          <Tabs.Panel title='Tab #1'>
+            <h2>Content #1 here</h2>
+          </Tabs.Panel>
+          <Tabs.Panel title='Tab #2'>
+            <h2>Content #2 here</h2>
+          </Tabs.Panel>
+          <Tabs.Panel title='Tab #3'>
+            <h2>Content #3 here</h2>
+          </Tabs.Panel>
+        </Tabs>
+      </Formsy.Form>
+    )
+
   }
 }
-
-IndexComponent.defaultProps = {
-  items: []
-};
